@@ -4,7 +4,7 @@ Obiettivo: creare la struttura base di un progetto Django
 
 1) Creare un repository Github
 2) Creare un progetto Vs Code clonando il repository Github
-
+3) Virtual Envirnonment
 
 ### Repository Github
 <br><br>
@@ -49,3 +49,29 @@ NB: la cartella con il nome del progetto verrà creata dalla clonazione cioè se
 <img width="791" alt="Schermata 2023-11-10 alle 20 17 44" src="https://github.com/Allegromare/dgango_base_project/assets/66548449/d0cab6b5-8b02-4af5-b6fe-7393bb73f74b">
 <br><br>
 
+### Virtual Environment
+Creare un ambiente virtuale (chiamandolo env)
+python3 -m venv env
+
+Attivare un ambiente virtuale
+source env/bin/activate
+
+<br><br>
+<img width="1042" alt="Schermata 2023-11-10 alle 20 36 21" src="https://github.com/Allegromare/dgango_base_project/assets/66548449/19de6467-4739-4b6a-8feb-0c02aefb9d11">
+<br><br>
+
+Disattivare un ambiente virtuale
+deactivate
+
+Creare un file requirements.txt
+pip3 freeze > requirements.txt
+
+Creare un ambiente virtuale da un file requirements.txt (installando anche i pacchetti presenti nel file)
+pip3 install -r requirements.txt
+
+Installare un pacchetto
+pip3 install <packageName>
+
+<br><br>
+
+### 
