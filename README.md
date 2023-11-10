@@ -1,4 +1,4 @@
-# Dgango Base Project
+# Django Base Project
 
 Obiettivo: creare la struttura base di un progetto Django
 
