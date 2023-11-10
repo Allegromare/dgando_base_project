@@ -6,6 +6,7 @@ Obiettivo: creare la struttura base di un progetto Django
 2) Creare un progetto Vs Code clonando il repository Github
 3) Virtual Envirnonment
 4) Setup Django
+5) Admin
 
 ### Repository Github
 <br><br>
@@ -115,7 +116,7 @@ DATABASES = {
 SECRET_KEY = env(‘SECRET_KEY’)
 
 
-### Dashboard Admin
+### Admin
 Se si vuole accede alla dashboard di amministrazione è necessario andare a creare la tabella utenti all'interno del DataBase; si tratta di un componente standard di sistema da cui basterà effettuare la migrazione; ovviamente per accedere alla dashboard dovremmo creare il primo utente (superuser); successivamente basterà lanciare il server di sviluppo e per andare alla dashboard di amministrazione 
 
 Migrazione
