@@ -5,6 +5,7 @@ Obiettivo: creare la struttura base di un progetto Django
 1) Creare un repository Github
 2) Creare un progetto Vs Code clonando il repository Github
 3) Virtual Envirnonment
+4) Setup Django
 
 ### Repository Github
 <br><br>
@@ -50,15 +51,11 @@ NB: la cartella con il nome del progetto verrà creata dalla clonazione cioè se
 <br><br>
 
 ### Virtual Environment
-Creare un ambiente virtuale (chiamandolo env)
-python3 -m venv env
+Creare un ambiente virtuale (chiamandolo venv)
+python3 -m venv venv
 
 Attivare un ambiente virtuale
-source env/bin/activate
-
-<br><br>
-<img width="1042" alt="Schermata 2023-11-10 alle 20 36 21" src="https://github.com/Allegromare/dgango_base_project/assets/66548449/19de6467-4739-4b6a-8feb-0c02aefb9d11">
-<br><br>
+source venv/bin/activate
 
 Disattivare un ambiente virtuale
 deactivate
@@ -74,4 +71,46 @@ pip3 install <packageName>
 
 <br><br>
 
-### 
+### Setup Django
+
+Installare Django
+pip install django
+
+Creare un progetto
+NB: core_project è il nome del progetto (uso questo nome sempre per distinguerlo dalle app del progetto); è importante aggiungere alla fine il punto per evitare che Django crei una sottocartella core_project ed all'interno di questa una sottocartell sempre con il nome di core_project
+
+django-admin startproject core_project .
+
+Installare django-environ per gestire le variabili d'ambiente 
+It is important to keep sensitive bits of code like API keys and passwords away from prying eyes. The best way to do this is to not put them on GitHub! Even you’re doing a personal project with no real users, securing your environment variables will build good habits
+pip install django-environ
+
+Inizializzare l'ambiente aggiungento quanto segue al file settings.py
+
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
+
+Creare il file .env all'interno della directory principale (quella dove vi è il file settings.py) e settare le variabili d'ambiente (di seguito un esempio)
+
+SECRET_KEY=h^z13$qr_s_wd65@gnj7a=xs7t05$w7q8!x_8zsld#
+DATABASE_NAME=postgresdatabase
+DATABASE_USER=alice
+DATABASE_PASS=supersecretpassword
+
+Aggiungere il file .env nel file .gitignore in modo che non venga sincronizzato con Github
+
+Sostituire i riferimenti alle variabili d'ambiente nel file settings.py; di seguito un esempio:
+
+DATABASES = {
+  ‘default’: {
+  ‘ENGINE’: ‘django.db.backends.postgresql_psycopg2’,
+  ‘NAME’: env(‘DATABASE_NAME’),
+  ‘USER’: env(‘DATABASE_USER’),
+  ‘PASSWORD’: env(‘DATABASE_PASS’),
+  }
+}
+
+SECRET_KEY = env(‘SECRET_KEY’)
+
