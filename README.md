@@ -114,3 +114,32 @@ DATABASES = {
 
 SECRET_KEY = env(‘SECRET_KEY’)
 
+
+### Dashboard Admin
+Se si vuole accede alla dashboard di amministrazione è necessario andare a creare la tabella utenti all'interno del DataBase; si tratta di un componente standard di sistema da cui basterà effettuare la migrazione; ovviamente per accedere alla dashboard dovremmo creare il primo utente (superuser); successivamente basterà lanciare il server di sviluppo e per andare alla dashboard di amministrazione 
+
+Migrazione
+python manage.py makemigrations
+python manage.py migrate
+
+Creare un Superuser
+python3 manage.py createsuperuser
+
+Lanciare il server di svuluppo
+python manage.py runserver
+
+La risposta dovrebbe essere similare a quella che segue:
+
+(venv) giu@MacBook-Air dgango_base_project % python3 manage.py runserver     
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 10, 2023 - 20:43:54
+Django version 4.2.7, using settings 'core_project.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+Andando a http://127.0.0.1:8000/ si avvierà il server di sviluppo e la dashboard di amministrazione sarà raggiungibile a http://127.0.0.1:8000/admin
+
+
